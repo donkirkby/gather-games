@@ -1,0 +1,52 @@
+[
+  {
+    "id": "78656772-aa04-42c8-b8ad-50712f27630b",
+    "x": 5.39,
+    "y": 373.11,
+    "z": 732,
+    "type": "cardPile",
+    "layoutType": null,
+    "height": 105,
+    "r": 0,
+    "width": 92,
+    "dragging": null
+  },
+  {
+    "id": "256e2c02-6d24-4c7d-92f3-f3fccf8a538c",
+    "z": 1632,
+    "snapAngles": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300
+    ],
+    "cardHeight": 105,
+    "type": "cardDeck",
+    "faceTemplate": {
+      "objects": [
+        {
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "w": 92,
+          "h": 105,
+          "valueType": "static",
+          "value": "package://userassets/palago.png",
+          "color": "rgba(255,255,255,0)"
+        }
+      ]
+    },
+    "collectionType": "pieces",
+    "parent": "78656772-aa04-42c8-b8ad-50712f27630b",
+    "cardWidth": 92,
+    "backTemplate": null,
+    "x": 8.39,
+    "cardTypes": {
+      "type-3ac2414b-e269-4912-919c-4102c29b6987": {}
+    },
+    "y": 382.61,
+    "dragging": null
+  }
+]

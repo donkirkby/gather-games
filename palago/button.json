@@ -1,0 +1,75 @@
+{
+  "id": "d2ad9a25-2232-4cb9-9111-ce0695aa23b0",
+  "x": 97.01,
+  "z": 1318,
+  "clickRoutine": {
+    "steps": [
+      {
+        "id": "41a625ed-167c-42d4-8d71-728bedc677b0",
+        "func": "RECALL_CARDS",
+        "args": {
+          "decks": {
+            "type": "literal",
+            "value": [
+              "256e2c02-6d24-4c7d-92f3-f3fccf8a538c",
+              "54640617-5093-4e72-ae6c-3118419599da"
+            ]
+          },
+          "includeHolders": {
+            "type": "literal",
+            "value": "holders"
+          }
+        }
+      },
+      {
+        "id": "60d3f723-489a-4cc0-abcb-db5bfddd6faa",
+        "func": "MOVE_CARDS_BETWEEN_HOLDERS",
+        "args": {
+          "from": {
+            "type": "literal",
+            "value": [
+              "78656772-aa04-42c8-b8ad-50712f27630b"
+            ]
+          },
+          "quantity": {
+            "type": "literal",
+            "value": 48
+          },
+          "to": {
+            "type": "literal",
+            "value": [
+              "78656772-aa04-42c8-b8ad-50712f27630b"
+            ]
+          }
+        }
+      },
+      {
+        "id": "12a4f1d1-08a9-46c6-9a04-a8ebf07e54ba",
+        "func": "MOVE_CARDS_BETWEEN_HOLDERS",
+        "args": {
+          "from": {
+            "type": "literal",
+            "value": [
+              "937d67f9-6c2c-4e97-808b-5214174dc932"
+            ]
+          },
+          "to": {
+            "type": "literal",
+            "value": [
+              "937d67f9-6c2c-4e97-808b-5214174dc932"
+            ]
+          },
+          "quantity": {
+            "type": "literal",
+            "value": 48
+          }
+        }
+      }
+    ]
+  },
+  "label": "Reset",
+  "y": 437.25,
+  "type": "automationButton",
+  "dragging": null,
+  "draggingType": null
+}

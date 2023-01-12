@@ -1,0 +1,65 @@
+[
+  {
+    "id": "937d67f9-6c2c-4e97-808b-5214174dc932",
+    "x": 3.66,
+    "y": 477.25,
+    "z": 733,
+    "type": "cardPile",
+    "layoutType": null,
+    "height": 105,
+    "r": 0,
+    "width": 92,
+    "dragging": null
+  },
+  {
+    "id": "54640617-5093-4e72-ae6c-3118419599da",
+    "z": 1327,
+    "snapAngles": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300
+    ],
+    "cardHeight": 105,
+    "type": "cardDeck",
+    "faceTemplate": {
+      "objects": [
+        {
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "w": 92,
+          "h": 105,
+          "valueType": "static",
+          "value": "package://userassets/mambo-blue.png",
+          "color": "rgba(255,255,255,0)"
+        }
+      ]
+    },
+    "collectionType": "pieces",
+    "parent": "937d67f9-6c2c-4e97-808b-5214174dc932",
+    "cardWidth": 92,
+    "backTemplate": {
+      "objects": [
+        {
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "w": 92,
+          "h": 105,
+          "valueType": "static",
+          "value": "package://userassets/mambo-red.png",
+          "color": "rgba(255,255,255,0)"
+        }
+      ]
+    },
+    "x": 6.66,
+    "cardTypes": {
+      "type-3ac2414b-e269-4912-919c-4102c29b6987": {}
+    },
+    "y": 486.75,
+    "dragging": null
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "9c5f1cd9-5a39-4836-92b6-0b3a2059f07b",
+    "x": 45.46,
+    "y": 210.54,
+    "z": 365,
+    "type": "cardPile",
+    "hasShuffleButton": true,
+    "width": 48,
+    "height": 88,
+    "dragging": null
+  },
+  {
+    "autoShuffle": true,
+    "cardWidth": 40,
+    "id": "4ffd0c13-c26c-48d8-8cc8-b2e20c2ed405",
+    "faceTemplate": {
+      "includeBorder": "heavy",
+      "includeRadius": true,
+      "objects": [
+        {
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 80,
+          "color": "#c3e7ed",
+          "valueType": "dynamic",
+          "value": "image"
+        }
+      ]
+    },
+    "y": 211.54,
+    "cardTypes": {},
+    "backTemplate": {
+      "includeBorder": "heavy",
+      "includeRadius": true,
+      "objects": [
+        {
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 80,
+          "color": "#c3e7ed",
+          "valueType": "static",
+          "value": "/img/dominoes/back.svg"
+        }
+      ]
+    },
+    "type": "cardDeck",
+    "z": 1395,
+    "parent": "9c5f1cd9-5a39-4836-92b6-0b3a2059f07b",
+    "x": 26.46,
+    "cardHeight": 80,
+    "snapAngles": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "owner": null,
+    "dragging": null
+  }
+]
