@@ -7,6 +7,8 @@ name = "pypi"
 svgwrite = "*"
 cairosvg = "*"
 matplotlib = "*"
+pillow = "*"
+space-tracer = "*"
 
 [dev-packages]
 

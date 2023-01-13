@@ -1,12 +1,16 @@
+from io import BytesIO
 from json import loads, dumps
 from pathlib import Path
 from zipfile import ZipFile
+
+from tetrominoes import draw_tetromino
 
 
 def main():
     folder_path = Path(__file__).parent
     deck = loads((folder_path/'deck.json').read_text())
-    widgets = []
+    deck2 = loads((folder_path/'deck2.json').read_text())
+    widgets = [deck2]
     widgets.extend(deck)
     holder, template = deck
     card_types = template['cardTypes']
@@ -50,9 +54,44 @@ def main():
             h_pile['y'] -= 22
             if j < col_count - 1:
                 widgets.append(h_pile)
+    tetrominoes = {}
+    for letter in 'ijlotsz':
+        for colour in ('cornsilk', 'black'):
+            name = f'tetromino-{letter}-{colour}.png'
+            image = draw_tetromino(letter.upper(), colour)
+            tetrominoes[name] = image
+
+    tetromino_types = deck2['cardTypes']
+    for i, (front, back) in enumerate((('o', 'o'),
+                                       ('l', 'j'),
+                                       ('j', 'l'),
+                                       ('t', 't'),
+                                       ('s', 'z'),
+                                       ('z', 's'),
+                                       ('i', 'i'))):
+        type_name = f'type-tetromino-{front}'
+        tetromino_type = dict(
+            face=f'package://userassets/tetromino-{front}-black.png',
+            back=f'package://userassets/tetromino-{back}-cornsilk.png',
+            label=f'Tetromino {front.upper()}')
+        tetromino_types[type_name] = tetromino_type
+        piece = dict(id=f'tetromino-{front}',
+                     type='piece',
+                     cardType=type_name,
+                     deck=deck2['id'],
+                     x=40,
+                     y=200+i*84,
+                     z=1800,
+                     faceup=True,
+                     r=0)
+        widgets.append(piece)
 
     with ZipFile(folder_path/'dominoes.pcio', 'w') as zf:
         zf.writestr('widgets.json', dumps(widgets))
+        for name, image in tetrominoes.items():
+            f = BytesIO()
+            image.save(f, 'PNG')
+            zf.writestr('userassets/' + name, f.getvalue())
 
 
 main()

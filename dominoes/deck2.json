@@ -1,0 +1,47 @@
+{
+  "id": "ceb1c966-2719-4259-8330-4e72d6a300ce",
+  "x": 27.86,
+  "y": 200,
+  "z": 1672,
+  "type": "cardDeck",
+  "collectionType": "pieces",
+  "cardWidth": 160,
+  "cardHeight": 80,
+  "cardTypes": {},
+  "faceTemplate": {
+    "objects": [
+      {
+        "type": "image",
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 80,
+        "valueType": "dynamic",
+        "value": "face",
+        "color": "rgba(255,255,255,0)"
+      }
+    ]
+  },
+  "backTemplate": {
+    "objects": [
+      {
+        "type": "image",
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 80,
+        "valueType": "dynamic",
+        "value": "back",
+        "color": "rgba(255,255,255,0)"
+      }
+    ]
+  },
+  "dragging": null,
+  "draggingType": null,
+  "snapAngles": [
+    0,
+    90,
+    180,
+    270
+  ]
+}
