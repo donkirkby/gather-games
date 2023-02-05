@@ -12,6 +12,7 @@ def main():
     deck2 = loads((folder_path/'deck2.json').read_text())
     widgets = [deck2]
     widgets.extend(deck)
+    widgets.append(dict(id="hand", type="hand", x=50, y=820, z=1, dragging=None))
     holder, template = deck
     card_types = template['cardTypes']
     for num1 in range(16):
@@ -30,7 +31,7 @@ def main():
                              y=holder['y'],
                              z=holder['z'])
                 widgets.append(piece)
-    row_count = 20
+    row_count = 18
     col_count = 30
     for i in range(row_count):
         for j in range(col_count):

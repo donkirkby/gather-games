@@ -49,19 +49,16 @@
       ]
     },
     "type": "cardDeck",
+    "onRemoveFromHand": null,
     "z": 1395,
     "parent": "9c5f1cd9-5a39-4836-92b6-0b3a2059f07b",
     "x": 26.46,
     "cardHeight": 80,
     "snapAngles": [
       0,
-      45,
       90,
-      135,
       180,
-      225,
-      270,
-      315
+      270
     ],
     "owner": null,
     "dragging": null
