@@ -33,7 +33,7 @@
           "w": 92,
           "h": 105,
           "valueType": "static",
-          "value": "package://userassets/palago.png",
+          "value": "package://userassets/palago-blue.png",
           "color": "rgba(255,255,255,0)"
         }
       ]
@@ -41,7 +41,20 @@
     "collectionType": "pieces",
     "parent": "78656772-aa04-42c8-b8ad-50712f27630b",
     "cardWidth": 92,
-    "backTemplate": null,
+    "backTemplate": {
+      "objects": [
+        {
+          "type": "image",
+          "x": 0,
+          "y": 0,
+          "w": 92,
+          "h": 105,
+          "valueType": "static",
+          "value": "package://userassets/palago-red.png",
+          "color": "rgba(255,255,255,0)"
+        }
+      ]
+    },
     "x": 8.39,
     "cardTypes": {
       "type-3ac2414b-e269-4912-919c-4102c29b6987": {}

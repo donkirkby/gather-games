@@ -56,7 +56,8 @@ def main():
             zf.writestr('widgets.json', dumps(widgets))
             zf.write('mambo-blue.png', 'userassets/mambo-blue.png')
             zf.write('mambo-red.png', 'userassets/mambo-red.png')
-            zf.write('palago.png', 'userassets/palago.png')
+            zf.write('palago-blue.png', 'userassets/palago-blue.png')
+            zf.write('palago-red.png', 'userassets/palago-red.png')
 
 
 main()
