@@ -1,0 +1,38 @@
+{
+  "id": "babfea98-74c8-4a14-beaa-4b4b9177e85c",
+  "x": 8.34,
+  "y": 486.64,
+  "z": 1634,
+  "type": "automationButton",
+  "label": "Deal",
+  "clickRoutine": {
+    "steps": [
+      {
+        "id": "339346bf-fb94-463e-bf18-54cfe8109520",
+        "func": "RECALL_CARDS",
+        "args": {
+          "decks": {
+            "type": "literal",
+            "value": [
+              "256e2c02-6d24-4c7d-92f3-f3fccf8a538c"
+            ]
+          }
+        }
+      },
+      {
+        "id": "66a927f4-0995-44fd-b837-c256714d559a",
+        "func": "SHUFFLE_CARDS",
+        "args": {
+          "holders": {
+            "type": "literal",
+            "value": [
+              "78656772-aa04-42c8-b8ad-50712f27630b"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "dragging": null,
+  "draggingType": null
+}

@@ -3,7 +3,7 @@ from pathlib import Path
 from zipfile import ZipFile
 
 
-# noinspection HttpUrlsUsage
+# noinspection HttpUrlsUsage,DuplicatedCode
 def main():
     """ Rules online:
 
