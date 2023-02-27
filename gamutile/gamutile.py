@@ -9,11 +9,16 @@ from PIL import Image, ImageDraw, ImageColor
 from PIL.ImageDraw import floodfill
 from space_tracer import LivePillowImage
 
-COLOUR_NAMES = {'R': 'red',
-                'r': 'red',
-                'G': 'grey',
-                'B': 'blue',
-                'b': 'blue'}
+# {code: (colour, size)}
+OPTIONS = {'A': ('red', 0),
+           'a': ('red', -1),
+           'e': ('red', -2),
+           'B': ('blue', 0),
+           'b': ('blue', -1),
+           'c': ('blue', -2),
+           'X': ('grey', 0),
+           'x': ('grey', -1),
+           'y': ('grey', -2)}
 
 
 class SpinDraw:
@@ -43,30 +48,31 @@ class SpinDraw:
 
         return x*cos(theta) - y*sin(theta), x*sin(theta) + y*cos(theta)
 
-    def arc(self):
-        r = self.r
-        x, y = self.transform(r, 0)
+    def arc(self, size: int = 0):
+        r = (3+size)*self.r/6
+        x, y = self.transform(self.r, 0)
         x += self.cx
         y += self.cy
 
-        self.draw.arc(((x - r/2, y - r/2),
-                       (x + r/2, y + r/2)),
+        self.draw.arc(((x - r, y - r),
+                       (x + r, y + r)),
                       120 + self.angle,
                       240 + self.angle,
                       fill='black',
                       width=self.line_width)
 
-    def line(self):
+    def line(self, offset: int = 0):
         self.spin(-30)
-        x, y = self.transform(self.r*sqrt(3)/2, 0)
+        x1, y1 = self.transform(-self.r*sqrt(3)/2, -self.r*offset/10)
+        x2, y2 = self.transform(self.r*sqrt(3)/2, -self.r*offset/10)
         self.spin(30)
-        self.draw.line(((self.cx - x, self.cy - y),
-                        (self.cx + x, self.cy + y)),
+        self.draw.line(((self.cx + x1, self.cy + y1),
+                        (self.cx + x2, self.cy + y2)),
                        fill='black',
                        width=self.line_width)
 
     def fill(self, colour_name):
-        x, y = self.transform(self.r*3/4, 0)
+        x, y = self.transform(self.r*8/9, 0)
 
         fill = ImageColor.getcolor(colour_name, 'RGBA')
         floodfill(self.image, (self.cx + x, self.cy + y), fill)
@@ -78,10 +84,11 @@ class SpinDraw:
 
 
 def build_back(r: float) -> Image.Image:
+    colour, _ = OPTIONS['X']
     spin_draw = SpinDraw(r)
-    spin_draw.fill('lightgrey')
-    for code in 'RbGrBG':
-        colour = COLOUR_NAMES[code]
+    spin_draw.fill(colour)
+    for code in 'ABABAB':
+        colour, _ = OPTIONS[code]
 
         spin_draw.arc()
         spin_draw.fill(colour)
@@ -92,41 +99,40 @@ def build_back(r: float) -> Image.Image:
 
 def build_tile(points: str, r: float) -> Image.Image:
     spin_draw = SpinDraw(r)
+    sizes = [OPTIONS[point][1] for point in points]
     if points[0] != points[1]:
-        spin_draw.arc()
+        spin_draw.arc(sizes[0])
         if points[1] != points[2]:
             spin_draw.spin(120)
-            spin_draw.arc()
+            spin_draw.arc(sizes[1])
             spin_draw.spin(120)
-            spin_draw.arc()
+            spin_draw.arc(sizes[2])
             spin_draw.spin(120)
         else:
             spin_draw.spin(120)
-            spin_draw.line()
+            spin_draw.line(sizes[1])
             spin_draw.spin(60)
-            spin_draw.arc()
+            spin_draw.arc(-sizes[1])
             spin_draw.spin(-180)
     else:
         spin_draw.spin(60)
-        spin_draw.arc()
+        spin_draw.arc(-sizes[0])
         spin_draw.spin((-60))
         if points[0] != points[2]:
-            spin_draw.line()
+            spin_draw.line(sizes[0])
             spin_draw.spin(-120)
-            spin_draw.arc()
+            spin_draw.arc(sizes[2])
             spin_draw.spin(120)
         else:
-            spin_draw.spin(60)
-            spin_draw.arc()
+            spin_draw.spin(180)
+            spin_draw.arc(-sizes[0])
             spin_draw.spin(120)
-            spin_draw.arc()
-            spin_draw.spin(120)
-            spin_draw.arc()
+            spin_draw.arc(-sizes[0])
             spin_draw.spin(60)
 
     for point in points:
-        colour_name = COLOUR_NAMES[point]
-        spin_draw.fill(colour_name)
+        colour, size = OPTIONS[point]
+        spin_draw.fill(colour)
         spin_draw.spin(120)
 
     return spin_draw.resize()
@@ -155,14 +161,14 @@ def generate_tiles(combinations):
 
 def demo_main():
     size = 400
-    image = build_back(size / 2)
+    image = build_tile('Aae', size / 2)
     live_image = LivePillowImage(image)
     live_image.display((-size/2, size/2))
 
 
 # noinspection DuplicatedCode
 def main():
-    combinations = list(generate_combinations('RrGBb'))
+    combinations = list(generate_combinations('AaeBbc'))
     generate_tiles(combinations)
 
     folder_path = Path(__file__).parent

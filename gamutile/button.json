@@ -4,7 +4,7 @@
   "y": 486.64,
   "z": 1634,
   "type": "automationButton",
-  "label": "Deal",
+  "label": "Reset",
   "clickRoutine": {
     "steps": [
       {
