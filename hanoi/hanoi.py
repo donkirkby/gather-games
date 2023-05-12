@@ -1,4 +1,4 @@
-""" Rules at http://www.marksteeregames.com/Monkey_Queen_rules.html """
+""" Rules at http://cambolbro.com/games/hanoi/ """
 import typing
 from math import sqrt, ceil
 from pathlib import Path
